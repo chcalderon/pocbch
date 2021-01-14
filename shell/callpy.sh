@@ -19,7 +19,7 @@ for dir,d,filename in os.walk(input_dir):
     for file in filename :
         items_in_dir=file
         xl = pd.ExcelFile(dir+file)
-        SISTEMA=file.split(".")[0].split("_")[1]
+        SISTEMA=file.split(".")[0].split("_")[1].upper()
         D_YYYY=file.split(".")[0].split("_")[0][0:4]
         D_MM=file.split(".")[0].split("_")[0][4:6]
         sheetnames=xl.sheet_names  # see all sheet names
@@ -42,7 +42,7 @@ for dir,d,filename in os.walk(input_dir):
                 df1.drop(df1.index[-1],axis=0,inplace=True)
                 Header="Header"+"||"+SISTEMA+"||"+sheetname+"||"+D_YYYY+\
                 D_MM+"||"+P_YYYY+P_MMs+"||"+P_HH+P_MM+"||"+str(len(df1))
-                np.savetxt('outputInterfaces/'+"GDD_"+SISTEMA+'_Activos_Bancos_1_'\
+                np.savetxt('outputInterfaces/'+"GDD_M_"+SISTEMA+'_Activos1_'\
                            +D_YYYY+D_MM+'.dat', df1.values, delimiter='||', fmt='%s',\
                            encoding='utf-8',header=Header,comments="")
             if sheetname == 'Activos Bancos 2':
@@ -56,6 +56,6 @@ for dir,d,filename in os.walk(input_dir):
                 df1.drop(df1.index[-1],axis=0,inplace=True)
                 Header="Header"+"||"+SISTEMA+"||"+sheetname+"||"+D_YYYY+\
                 D_MM+"||"+P_YYYY+P_MMs+"||"+P_HH+P_MM+"||"+str(len(df1))
-                np.savetxt('outputInterfaces/'+"GDD_"+SISTEMA+'_Activos_Bancos_2_'\
+                np.savetxt('outputInterfaces/'+"GDD_M_"+SISTEMA+'_Activos2_'\
                            +D_YYYY+D_MM+'.dat', df1.values, delimiter='||', fmt='%s',\
                            encoding='utf-8',header=Header,comments="")
