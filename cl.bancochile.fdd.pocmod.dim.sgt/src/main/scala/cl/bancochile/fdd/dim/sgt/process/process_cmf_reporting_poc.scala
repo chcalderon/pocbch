@@ -12,7 +12,7 @@ import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions
  
  
-object process_cmf_operational_reporting { 
+object process_cmf_reporting_poc { 
    
   /** 
    * Este codigo se ejecuta cuando se llama el JAR desde spark2-submit. el codigo esta preparado para hacer reprocesamiento masivo. 
