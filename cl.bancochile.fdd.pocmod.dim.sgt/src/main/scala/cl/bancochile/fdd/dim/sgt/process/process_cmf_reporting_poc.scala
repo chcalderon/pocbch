@@ -70,9 +70,9 @@ object process_cmf_reporting_poc {
        
       val Df1 = huemulBigDataGov.spark.sql(s"""select * from production_master.tbl_activospoc1_messys""")
 
-      Df1.write.partitionBy("periodo_mes","nombre_institucion").mode(SaveMode.Overwrite).format("parquet").saveAsTable("production_dim.tbl_cmf_report_poc")
+      Df1.write.partitionBy("periodo_mes","Institucion").mode(SaveMode.Overwrite).format("parquet").saveAsTable("production_dim.tbl_cmf_report_poc")
 	  
-      Df1.write.partitionBy("periodo_mes","nombre_institucion").mode("overwrite").format("parquet").save(s"""hdfs://10.128.0.3/bancochile/gdd/data/reporting/cmf_direct_report_poc""")       
+      Df1.write.partitionBy("periodo_mes","Institucion").mode("overwrite").format("parquet").save(s"""hdfs://10.128.0.3/bancochile/gdd/data/reporting/cmf_direct_report_poc""")       
       
       Control.FinishProcessOK 
     } catch { 
