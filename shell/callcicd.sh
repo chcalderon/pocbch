@@ -48,10 +48,8 @@ def call_compile(args):
     #Se ubica en la carpeta para procesar
     log.info("Compilando el proyecto")
     ruta = args[0]
-    cmd = "cd "+ruta
-    call(cmd, shell=True)
+    cmd = "cd "+ruta + " && mvn clean package -DskipTests"
     #Compila el proyecto
-    cmd = "mvn clean package -DskipTests"
     try:
         execution = call(cmd, shell=True)
         log.info("Compile execution: "+execution)
