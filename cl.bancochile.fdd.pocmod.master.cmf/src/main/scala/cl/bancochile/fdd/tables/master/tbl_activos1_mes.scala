@@ -118,14 +118,5 @@ class tbl_activospoc1_messys (huemulBigDataGov: huemul_BigDataGovernance, Contro
     Oper_factoraje.setNullable(true) 
     Oper_factoraje.setIsPK(false) 
    
-//    val Car_mor_90_dia = new huemul_Columns (DoubleType,true,"") 
-//    Car_mor_90_dia.setNullable(true) 
-//    Car_mor_90_dia.setIsPK(false) 
-//   
-//    val Car_deterio = new huemul_Columns (DoubleType,true,"") 
-//    Car_deterio.setNullable(true) 
-//    Car_deterio.setIsPK(false) 
- 
-     
   this.ApplyTableDefinition() 
 } 

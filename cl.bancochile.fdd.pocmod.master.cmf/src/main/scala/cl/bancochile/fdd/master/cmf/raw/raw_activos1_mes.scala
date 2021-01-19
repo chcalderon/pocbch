@@ -80,11 +80,6 @@ CurrentSetting.DataSchemaConf.AddColumns("Oper_leas_tot","Oper_leas_tot",Decimal
 
 CurrentSetting.DataSchemaConf.AddColumns("Oper_factoraje","Oper_factoraje",DecimalType(15,4),"Oper_factoraje")
 
-//CurrentSetting.DataSchemaConf.AddColumns("Car_mor_90_dia","Car_mor_90_dia",DecimalType(15,4),"Car_mor_90_dia")
-
-//CurrentSetting.DataSchemaConf.AddColumns("Car_deterio","Car_deterio",DecimalType(15,4),"Car_deterio")
-   
- 
   //========================================================== 
   // Auto-Gen Log schema if applies 
   // ========================================================= 

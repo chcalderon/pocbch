@@ -142,12 +142,6 @@ object process_activos1_mes {
          
           huemulTable_tbl_activos1_mes.Oper_factoraje.setMapping("Oper_factoraje") 
          
-//          huemulTable_tbl_activos1_mes.Car_mor_90_dia.setMapping("Car_mor_90_dia") 
-//         
-//          huemulTable_tbl_activos1_mes.Car_deterio.setMapping("Car_deterio") 
-         
-         
-         
         if (!huemulTable_tbl_activos1_mes.executeFull("DF_tbl_activospoc1_mes_Final")){ 
           Control.RaiseError(s"User: Error al intentar masterizar tbl_activospoc1_mes (${huemulTable_tbl_activos1_mes.Error_Code}): ${huemulTable_tbl_activos1_mes.Error_Text}") 
         } 
