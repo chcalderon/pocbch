@@ -53,8 +53,8 @@ def call_compile(args):
     #Compila el proyecto
     cmd = "mvn clean package -DskipTests"
     try:
-        exec = call(cmd, shell=True)
-        log.info("Compile exec: "+exec)
+        execution = call(cmd, shell=True)
+        log.info("Compile execution: "+execution)
     except OSError as e:
         log.error(e)
 #*****************************************************************************************#
@@ -65,10 +65,10 @@ def call_install(args):
     #Copia el proyecto compilado a hadoop
     try:
         cmd = "hdfs dfs -put "+args[0]+"/target/"+args[1]+" hdfs://10.128.0.3/bancochile/gdd/jar/"+args[1]
-        exec = call(cmd, shell=True)
+        execution = call(cmd, shell=True)
     except OSError as e:
         log.error(e)
-    log.info("Install exec: "+exec)
+    log.info("Install execution: "+execution)
 #*****************************************************************************************#
 #  Funciones de apoyo (Definiciones globales a utilizar )
 #*****************************************************************************************#
