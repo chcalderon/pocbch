@@ -46,29 +46,29 @@ def logger_config():
 #*****************************************************************************************#
 def call_compile(args):
     #Se ubica en la carpeta para procesar
-	log.info("Compilando el proyecto")
-	ruta = args[0]
-	cmd = "cd "+ruta
+    log.info("Compilando el proyecto")
+    ruta = args[0]
+    cmd = "cd "+ruta
     call(cmd, shell=True)
     #Compila el proyecto
     cmd = "mvn clean package -DskipTests"
     try:
-		exec = call(cmd, shell=True)
-		log.info("Compile exec: "+exec)
-	except OSError as e:
+        exec = call(cmd, shell=True)
+        log.info("Compile exec: "+exec)
+    except OSError as e:
         log.error(e)
 #*****************************************************************************************#
 # Spark submit activos 1
 #*****************************************************************************************#
 def call_install(args):
     #Proceso para instalacion
-	#Copia el proyecto compilado a hadoop
+    #Copia el proyecto compilado a hadoop
     try:
-	    cmd = "hdfs dfs -put "+args[0]+"/target/"+args[1]+" hdfs://10.128.0.3/bancochile/gdd/jar/"+args[1]
+        cmd = "hdfs dfs -put "+args[0]+"/target/"+args[1]+" hdfs://10.128.0.3/bancochile/gdd/jar/"+args[1]
         exec = call(cmd, shell=True)
     except OSError as e:
         log.error(e)
-	log.info("Install exec: "+exec)
+    log.info("Install exec: "+exec)
 #*****************************************************************************************#
 #  Funciones de apoyo (Definiciones globales a utilizar )
 #*****************************************************************************************#
@@ -103,6 +103,6 @@ if __name__ == "__main__":
          if len(args[1]) > 5:
              call_install(args)
      log.info("Fin Proceso")
-     done = time.time()
-     elapsed = done - start
+     ready = time.time()
+     elapsed = ready - start
      log.info("Time elapsed: "+time.strftime('%H:%M:%S', time.gmtime(elapsed)))
