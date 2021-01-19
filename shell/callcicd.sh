@@ -55,6 +55,7 @@ def call_compile(args):
         log.info("Install execution: "+str(execution))
     except OSError as e:
         log.error(e)
+    return execution
 #*****************************************************************************************#
 # Spark submit activos 1
 #*****************************************************************************************#
@@ -62,7 +63,7 @@ def call_install(args):
     #Proceso para instalacion
     #Copia el proyecto compilado a hadoop
     try:
-        cmd = "hdfs dfs -put "+args[0]+"/target/"+args[1]+" hdfs://10.128.0.3/bancochile/gdd/jar/"+args[1]
+        cmd = "hdfs dfs -put -f "+args[0]+"/target/"+args[1]+" hdfs://10.128.0.3/bancochile/gdd/jar/"+args[1]
         execution = call(cmd, shell=True)
     except OSError as e:
         log.error(e)
@@ -92,13 +93,14 @@ if __name__ == "__main__":
      log.info("Inicio Proceso CI / CD")
      args = sys.argv[1:]
      # Si no hay dos parametros se muestra la ayuda y se termina la ejecucion
+     contpass=0
      if len(args) < 2 :
          print "params:", args, "-"
          ayudallamada()
      else:
          if len(args[0]) > 5:
-             call_compile(args)
-         if len(args[1]) > 5:
+             contpass = call_compile(args)
+         if len(args[1]) > 5 and contpass==0:
              call_install(args)
      log.info("Fin Proceso")
      ready = time.time()
