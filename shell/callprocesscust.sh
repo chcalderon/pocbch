@@ -74,7 +74,7 @@ def call_python():
 def call_process(args):
     log.info("Procesando activos 1")
     cmd="error"
-    if (args[2] and args[3] and args[4] and args[5] and args[6]):
+    if len(args) == 7 :
         cmd = "spark-submit --jars hdfs://10.128.0.3/bancochile/gdd/jar/huemul-bigdatagovernance-2.6.2.jar,hdfs://10.128.0.3/bancochile/gdd/jar/huemul-sql-decode-1.0.jar,hdfs://10.128.0.3/bancochile/gdd/jar/fdd.todos.settings-1.4.0.jar,hdfs://10.128.0.3/bancochile/gdd/jar/ojdbc7-12.1.0.1.jar,hdfs://10.128.0.3/bancochile/gdd/jar/fdd.todos.cipher-1.0.1.jar,hdfs://10.128.0.3/bancochile/gdd/jar/hive-contrib-2.3.5.jar,hdfs://10.128.0.3/bancochile/gdd/jar/hive-warehouse-connector_2.11-1.0.0.3.1.0.0-78.jar --class "+args[2]+" hdfs://10.128.0.3/bancochile/gdd/jar/"+args[3]+" Environment=production,RegisterInControl=false,TestPlanMode=false,year="+args[4]+",month="+args[5]+",day="+args[6]+",num_registros_min=1,num_registros_max=10000000,params='',krb5_env=false --deploy-mode cluster --master yarn-cluster --executor-memory 2GB --driver-memory 2GB --num-executors 2 --total-executor-cores 4 --files /opt/hive/conf/hive-site.xml"
         log.info(cmd)
     else:
