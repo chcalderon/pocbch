@@ -52,7 +52,7 @@ def call_compile(args):
     #Compila el proyecto
     try:
         execution = call(cmd, shell=True)
-        log.info("Install execution: "+str(execution))
+        log.info("Compile execution: "+str(execution))
     except OSError as e:
         log.error(e)
     return execution
