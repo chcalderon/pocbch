@@ -1,13 +1,13 @@
 #!/usr/bin/python
 #*****************************************************************************************#
-# Nombre      : callprocess.sh                                                            #
+# Nombre      : callcicd.sh                                                               #
 #                                                                                         #
 # Descripcion : Genera un archivo csv de las solicitudes de llamadas desde viajes.        #
 #                                                                                         #
 # Autores     : Christian Calderon / Cristian Quintana / Felipe Cruz                      #
 # Empresa     : TCS                                                                       #
-# Sintaxis    : sh callprocess.sh                                                          #
-# Fecha       : 18/01/2021                                                                #
+# Sintaxis    : ./callcicd.sh ruta/proyecto nombre.jar                                    #
+# Fecha       : 19/01/2021                                                                #
 #*****************************************************************************************#
 
 #*****************************************************************************************#
@@ -83,8 +83,7 @@ def ayudallamada():
       print("parametro 2: jar a compilar")
       print("Ejemplo:")
       print(" > callcicd /PoC-ChC-repo/pocbch/cl.bancochile.fdd.pocmod.master.cmf fdd.master.cmf.pocmod-1.0.0.jar")
-      print(" ---> en este caso se reprocesa y se invoca al primer script")
-
+      print(" ---> en este caso se compila el proyecto y se copia el jar a hdfs")
 #*****************************************************************************************#
 # Programa principal
 #*****************************************************************************************#
@@ -93,7 +92,7 @@ if __name__ == "__main__":
      log.info("Inicio Proceso CI / CD")
      args = sys.argv[1:]
      # Si no hay dos parametros se muestra la ayuda y se termina la ejecucion
-     contpass=0
+     contpass=1
      if len(args) < 2 :
          print "params:", args, "-"
          ayudallamada()
