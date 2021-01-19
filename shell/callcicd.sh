@@ -64,7 +64,7 @@ def call_install(args):
     #Proceso para instalacion
 	#Copia el proyecto compilado a hadoop
     try:
-	    cmd = "hdfs dfs -put "++"/target/"+args[1]+" hdfs://10.128.0.3/bancochile/gdd/jar/"+args[1]
+	    cmd = "hdfs dfs -put "+args[0]+"/target/"+args[1]+" hdfs://10.128.0.3/bancochile/gdd/jar/"+args[1]
         exec = call(cmd, shell=True)
     except OSError as e:
         log.error(e)
