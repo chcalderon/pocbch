@@ -1,0 +1,27 @@
+Comandos de shell compilacion
+
+Compilar e instalar cl.bancochile.fdd.dim.sgt
+./callcicd.sh /home/tcs_bancochile/PoC-ChC-repo/pocbch/cl.bancochile.fdd.dim.sgt fdd.dim.sgt-1.0.0.jar
+
+Compilar e instalar cl.bancochile.fdd.master.cmf
+./callcicd.sh /home/tcs_bancochile/PoC-ChC-repo/pocbch/cl.bancochile.fdd.master.cmf fdd.master.cmf-1.0.0.jar
+
+Compilar e instalar cl.bancochile.fdd.pocmod.dim.sgt
+./callcicd.sh /home/tcs_bancochile/PoC-ChC-repo/pocbch/cl.bancochile.fdd.pocmod.dim.sgt fdd.dim.pocmod.sgt-1.0.0.jar
+
+Compilar e instalar cl.bancochile.fdd.pocmod.master.cmf
+./callcicd.sh /home/tcs_bancochile/PoC-ChC-repo/pocbch/cl.bancochile.fdd.pocmod.master.cmf fdd.master.cmf.pocmod-1.0.0.jar
+
+Solo Compilar cl.bancochile.fdd.pocmod.master.cmf
+./callcicd.sh /home/tcs_bancochile/PoC-ChC-repo/pocbch/cl.bancochile.fdd.pocmod.master.cmf com
+
+
+Comandos shell ejecucion
+
+ejecucion de cualquier spark
+Con reproceso
+./callprocesscust.sh s 1 cl.bancochile.fdd.dim.sgt.process.process_cmf_operational_reporting fdd.dim.sgt-1.0.0.jar 2019 09 01
+Sin reproceso
+./callprocesscust.sh n 1 cl.bancochile.fdd.dim.sgt.process.process_cmf_operational_reporting fdd.dim.sgt-1.0.0.jar 2019 09 01
+Solo reproceso
+./callprocesscust.sh s 2
